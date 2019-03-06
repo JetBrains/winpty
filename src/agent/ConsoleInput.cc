@@ -193,7 +193,7 @@ static int matchMouseRecord(const char *input, int inputSize, MouseRecord &out)
 } // anonymous namespace
 
 ConsoleInput::ConsoleInput(HANDLE conin, int mouseMode, DsrSender &dsrSender,
-                           Win32Console &console) :
+                           Win32Console &console, bool disableEchoInput) :
     m_console(console),
     m_conin(conin),
     m_mouseMode(mouseMode),
@@ -225,6 +225,9 @@ ConsoleInput::ConsoleInput(HANDLE conin, int mouseMode, DsrSender &dsrSender,
             mode |= ENABLE_QUICK_EDIT_MODE;
         } else {
             mode &= ~ENABLE_QUICK_EDIT_MODE;
+        }
+        if (disableEchoInput) {
+            mode &= ~ENABLE_ECHO_INPUT;
         }
         if (!SetConsoleMode(conin, mode)) {
             trace("Agent startup: SetConsoleMode failed");
