@@ -28,7 +28,7 @@ set MSVC_PLATFORM=x64
 :ParamLoop
 if "%1" == "" goto :ParamDone
 if "%1" == "--msvc-platform" (
-    REM -- One of Win32 or x64.
+    REM -- One of Win32, x64 or arm64.
     set MSVC_PLATFORM=%2
     shift && shift
     goto :ParamLoop

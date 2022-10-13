@@ -38,6 +38,12 @@ import sys
 os.chdir(common_ship.topDir)
 
 MSVC_VERSION_TABLE = {
+    "2017" : {
+        "package_name" : "msvc2017",
+        "gyp_version" : "2017",
+        "common_tools_env" : "VS150COMNTOOLS",
+        "xp_toolset" : "NONE",
+    },
     "2015" : {
         "package_name" : "msvc2015",
         "gyp_version" : "2015",
@@ -53,6 +59,9 @@ MSVC_VERSION_TABLE = {
 }
 
 ARCH_TABLE = {
+    "arm64" : {
+        "msvc_platform" : "arm64",
+    },
     "x64" : {
         "msvc_platform" : "x64",
     },
@@ -147,6 +156,7 @@ def buildPackage():
     cleanMsvc()
     build("ia32", packageDir)
     build("x64", packageDir)
+    build("arm64", packageDir)
 
     topDir = common_ship.topDir
 

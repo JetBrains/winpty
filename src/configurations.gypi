@@ -38,9 +38,15 @@
         'configurations': {
             'Release_Win32': {
                 'msvs_configuration_platform': 'Win32',
+                'msvs_target_platform': 'Win32',
             },
             'Release_x64': {
                 'msvs_configuration_platform': 'x64',
+                'msvs_target_platform': 'x64',
+            },
+            'Release_arm64': {
+                'msvs_configuration_platform': 'arm64',
+                'msvs_target_platform': 'arm64',
             },
         },
         'msvs_configuration_attributes': {
