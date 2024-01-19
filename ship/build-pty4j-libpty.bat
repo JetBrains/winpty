@@ -18,15 +18,15 @@ rmdir /s/q src\Release  2>NUL
 rmdir /s/q src\.vs      2>NUL
 del src\*.vcxproj src\*.vcxproj.filters src\*.sln src\*.sdf 2>NUL
 
-call vcbuild.bat --msvc-platform Win32 --gyp-msvs-version 2015 --toolset v140_xp || goto :fail
+call vcbuild.bat --msvc-platform Win32 --gyp-msvs-version 2017 --toolset v141_xp || goto :fail
 copy src\Release\Win32\winpty.dll           build-libpty\win\xp || goto :fail
 copy src\Release\Win32\winpty-agent.exe     build-libpty\win\xp || goto :fail
 
-call vcbuild.bat --msvc-platform Win32 --gyp-msvs-version 2015 || goto :fail
+call vcbuild.bat --msvc-platform Win32 --gyp-msvs-version 2017 || goto :fail
 copy src\Release\Win32\winpty.dll           build-libpty\win\x86 || goto :fail
 copy src\Release\Win32\winpty-agent.exe     build-libpty\win\x86 || goto :fail
 
-call vcbuild.bat --msvc-platform x64 --gyp-msvs-version 2015 || goto :fail
+call vcbuild.bat --msvc-platform x64 --gyp-msvs-version 2017 || goto :fail
 copy src\Release\x64\winpty.dll             build-libpty\win\x86_64 || goto :fail
 copy src\Release\x64\winpty-agent.exe       build-libpty\win\x86_64 || goto :fail
 
