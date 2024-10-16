@@ -151,9 +151,6 @@ def buildPackage():
 
     checkoutGyp()
     cleanMsvc()
-    build("ia32", packageDir, True)
-    build("x64", packageDir, True)
-    cleanMsvc()
     build("ia32", packageDir)
     build("x64", packageDir)
     build("arm64", packageDir)

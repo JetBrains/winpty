@@ -11,16 +11,11 @@ rmdir /s/q build-libpty 2>NUL
 mkdir build-libpty\win
 mkdir build-libpty\win\x86
 mkdir build-libpty\win\x86_64
-mkdir build-libpty\win\xp
 mkdir build-libpty\win\aarch64
 
 rmdir /s/q src\Release  2>NUL
 rmdir /s/q src\.vs      2>NUL
-del src\*.vcxproj src\*.vcxproj.filters src\*.sln src\*.sdf 2>NUL
-
-call vcbuild.bat --msvc-platform Win32 --gyp-msvs-version 2017 --toolset v141_xp || goto :fail
-copy src\Release\Win32\winpty.dll           build-libpty\win\xp || goto :fail
-copy src\Release\Win32\winpty-agent.exe     build-libpty\win\xp || goto :fail
+del src\*.vcxproj src\*.vcxpr
 
 call vcbuild.bat --msvc-platform Win32 --gyp-msvs-version 2017 || goto :fail
 copy src\Release\Win32\winpty.dll           build-libpty\win\x86 || goto :fail
