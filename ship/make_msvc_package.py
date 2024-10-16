@@ -42,7 +42,7 @@ MSVC_VERSION_TABLE = {
         "package_name" : "msvc2017",
         "gyp_version" : "2017",
         "common_tools_env" : "VS150COMNTOOLS",
-        "xp_toolset" : "NONE",
+        "xp_toolset" : "v141_xp",
     },
     "2015" : {
         "package_name" : "msvc2015",
